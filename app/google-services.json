@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "202316056464",
+    "project_id": "tfg-controlparental",
+    "storage_bucket": "tfg-controlparental.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202316056464:android:894335fbc36ecb04311515",
+        "android_client_info": {
+          "package_name": "com.tfg.controlparental"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202316056464-4ot4cpff2aq1ofm15v7uc3pe2jsh961p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-TWWm9C77US2PH2conPVnVe90BBhl4rA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202316056464-4ot4cpff2aq1ofm15v7uc3pe2jsh961p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
