@@ -13,4 +13,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_cursos">Cursos</string>
     <string name="menu_opciones">Opciones</string>
+    <string name="iniciar_sesion">INICIAR SESION</string>
+    <string name="registrarse">REGISTRARSE</string>
 </resources>
