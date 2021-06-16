@@ -29,7 +29,7 @@ public class AlumnoFragment extends Fragment {
     View vista;
     Button consultar, save, delete;
     EditText col, clase, tutor, codigoAlumno;
-    TextView texto;
+    TextView texto, textClase, textColegio, textTut;
     private Map<String, Object> note;
 
 
@@ -50,15 +50,16 @@ public class AlumnoFragment extends Fragment {
 
         //Operaciones
         Bundle bundle = getActivity().getIntent().getExtras();
+        textColegio = vista.findViewById(R.id.textViewColegio);
         col = vista.findViewById(R.id.Colegio);
         codigoAlumno = vista.findViewById(R.id.editTextTextPersonName);
+        textClase = vista.findViewById(R.id.textViewClase);
         clase = vista.findViewById(R.id.Clase);
+        textTut = vista.findViewById(R.id.textViewTutor);
         tutor = vista.findViewById(R.id.textTutor);
         save = vista.findViewById(R.id.change);
         delete = vista.findViewById(R.id.buttonRemove);
         consultar = vista.findViewById(R.id.btnConsultar);
-
-        String user;
 
         consultar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +79,9 @@ public class AlumnoFragment extends Fragment {
                                 clase.setText(note.get("Clase").toString());
                                 tutor.setText(note.get("Tutor").toString());
                                 if (col.getVisibility() != View.VISIBLE) {
+                                    textColegio.setVisibility(View.VISIBLE);
+                                    textClase.setVisibility(View.VISIBLE);
+                                    textTut.setVisibility(View.VISIBLE);
                                     col.setVisibility(View.VISIBLE);
                                     clase.setVisibility(View.VISIBLE);
                                     tutor.setVisibility(View.VISIBLE);
@@ -87,6 +91,9 @@ public class AlumnoFragment extends Fragment {
                             }
                         } catch (Exception e) {
                             texto.setText("Alumno no encontrado");
+                            textTut.setVisibility(View.GONE);
+                            textColegio.setVisibility(View.GONE);
+                            textClase.setVisibility(View.GONE);
                             col.setVisibility(View.GONE);
                             clase.setVisibility(View.GONE);
                             tutor.setVisibility(View.GONE);

@@ -35,8 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:hint="Codigo Alumno"
-            android:inputType="textPersonName" />
+            android:hint="Correo Alumno"
+            android:inputType="textEmailAddress" />
 
         <Button
             android:id="@+id/btnConsultar"
@@ -63,13 +63,27 @@
         app:layout_constraintTop_toTopOf="@+id/linearLayout2">
 
 
-
+        <TextView
+            android:id="@+id/textViewColegio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Colegio"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
         <EditText
             android:id="@+id/Colegio"
             android:layout_width="match_parent"
             android:layout_height="43dp"
-            android:hint="Colegio"
+            android:hint="@string/colegio"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textViewClase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/grupo"
             android:visibility="gone"
             tools:visibility="visible" />
 
@@ -77,7 +91,15 @@
             android:id="@+id/Clase"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Clase"
+            android:hint="@string/clase"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textViewTutor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profesor"
             android:visibility="gone"
             tools:visibility="visible" />
 
@@ -85,7 +107,7 @@
             android:id="@+id/textTutor"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:hint="Tutor"
+            android:hint="@string/tutor"
             android:visibility="gone"
             tools:visibility="visible" />
 
@@ -93,7 +115,7 @@
             android:id="@+id/change"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar"
+            android:text="@string/guardar"
             android:visibility="gone"
             tools:visibility="visible" />
 
@@ -101,7 +123,7 @@
             android:id="@+id/buttonRemove"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Eliminar"
+            android:text="@string/eliminar"
             android:visibility="gone"
             tools:visibility="visible" />
 

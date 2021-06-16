@@ -15,4 +15,11 @@
     <string name="menu_opciones">Opciones</string>
     <string name="iniciar_sesion">INICIAR SESION</string>
     <string name="registrarse">REGISTRARSE</string>
+    <string name="colegio">Colegio</string>
+    <string name="clase">Clase</string>
+    <string name="tutor">Tutor</string>
+    <string name="guardar">Guardar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="grupo">Grupo</string>
+    <string name="profesor">Profesor</string>
 </resources>
