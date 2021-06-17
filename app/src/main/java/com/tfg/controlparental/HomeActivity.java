@@ -1,5 +1,6 @@
 package com.tfg.controlparental;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -38,11 +39,11 @@ public class HomeActivity extends AppCompatActivity {
         //configuracion de la interfaz
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-
+        AppCompatActivity ext = this;
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_alumno, R.id.nav_cursos, R.id.nav_opciones).setOpenableLayout(drawer).build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        //NavigationUI.setupWithNavController(navigationView, navController);
 
         //configuracion de datos
         Bundle bundle = getIntent().getExtras();
@@ -60,6 +61,11 @@ public class HomeActivity extends AppCompatActivity {
                         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
                         noteAlum.put("Hora_in", currentTime);
                         db.collection("users").document(user).update(noteAlum);
+                    }
+                    else{
+                        NavController navController = Navigation.findNavController(ext, R.id.nav_host_fragment);
+                        NavigationUI.setupActionBarWithNavController(ext, navController, mAppBarConfiguration);
+                        NavigationUI.setupWithNavController(navigationView, navController);
                     }
                 }
             }

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ public class AlumnoFragment extends Fragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     View vista;
     Button consultar, save, delete;
-    EditText col, clase, tutor, codigoAlumno;
+    EditText col, clase, tutor, codigoAlumno, colString, claseString, tutorString;
     TextView texto;
     private Map<String, Object> note;
 
@@ -53,10 +52,13 @@ public class AlumnoFragment extends Fragment {
         col = vista.findViewById(R.id.Colegio);
         codigoAlumno = vista.findViewById(R.id.editTextTextPersonName);
         clase = vista.findViewById(R.id.Clase);
-        tutor = vista.findViewById(R.id.textTutor);
+        tutor = vista.findViewById(R.id.Tutor);
         save = vista.findViewById(R.id.change);
         delete = vista.findViewById(R.id.buttonRemove);
-        consultar = vista.findViewById(R.id.btnConsultar);
+        consultar = vista.findViewById(R.id.btnActualizar);
+        colString = vista.findViewById(R.id.ColegioString);
+        claseString = vista.findViewById(R.id.ClaseString);
+        tutorString = vista.findViewById(R.id.TutorString);
 
         String user;
 
@@ -81,6 +83,9 @@ public class AlumnoFragment extends Fragment {
                                     col.setVisibility(View.VISIBLE);
                                     clase.setVisibility(View.VISIBLE);
                                     tutor.setVisibility(View.VISIBLE);
+                                    colString.setVisibility(View.VISIBLE);
+                                    claseString.setVisibility(View.VISIBLE);
+                                    tutorString.setVisibility(View.VISIBLE);
                                     save.setVisibility(View.VISIBLE);
                                     delete.setVisibility(View.VISIBLE);
                                 }
@@ -92,6 +97,9 @@ public class AlumnoFragment extends Fragment {
                             tutor.setVisibility(View.GONE);
                             save.setVisibility(View.GONE);
                             delete.setVisibility(View.GONE);
+                            colString.setVisibility(View.GONE);
+                            claseString.setVisibility(View.GONE);
+                            tutorString.setVisibility(View.GONE);
                         }
                     }
                 });

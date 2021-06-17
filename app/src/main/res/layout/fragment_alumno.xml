@@ -39,7 +39,7 @@
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/btnConsultar"
+            android:id="@+id/btnActualizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Consultar" />
@@ -63,31 +63,86 @@
         app:layout_constraintTop_toTopOf="@+id/linearLayout2">
 
 
-
-
-        <EditText
-            android:id="@+id/Colegio"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:hint="Colegio"
-            android:visibility="gone"
-            tools:visibility="visible" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/Clase"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Clase"
-            android:visibility="gone"
-            tools:visibility="visible" />
+            <EditText
+                android:id="@+id/ColegioString"
+                android:layout_width="274dp"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:height="52dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:maxWidth="100dp"
+                android:text="Colegio: "
+                android:visibility="gone"
+                tools:visibility="visible" />
 
-        <EditText
-            android:id="@+id/textTutor"
+            <EditText
+                android:id="@+id/Colegio"
+                android:layout_width="320dp"
+                android:layout_height="52dp"
+                android:hint="Colegio"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:hint="Tutor"
-            android:visibility="gone"
-            tools:visibility="visible" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/ClaseString"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:height="52dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:maxWidth="100dp"
+                android:text="Clase:"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <EditText
+                android:id="@+id/Clase"
+                android:layout_width="320dp"
+                android:layout_height="52dp"
+                android:hint="Clase"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/TutorString"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_weight="1"
+                android:height="52dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:maxWidth="100dp"
+                android:text="Tutor: "
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <EditText
+                android:id="@+id/Tutor"
+                android:layout_width="320dp"
+                android:layout_height="52dp"
+                android:hint="Tutor"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/change"
