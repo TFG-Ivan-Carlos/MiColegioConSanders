@@ -46,7 +46,7 @@ public class OpcionesFragment extends Fragment {
     private OpcionesViewModel opcionesViewModel;
     EditText horas;
     Button actualiza;
-    private String email;
+    private String email, horasString;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -61,6 +61,7 @@ public class OpcionesFragment extends Fragment {
             }
         });
         actualiza = root.findViewById(R.id.btnActualizar);
+        horas = root.findViewById(R.id.editTextHoras);
         Bundle bundle = getActivity().getIntent().getExtras();
         String email =  bundle.getString("email");
         this.email = email;
@@ -72,6 +73,7 @@ public class OpcionesFragment extends Fragment {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if(documentSnapshot.getData().get("rol").toString().equalsIgnoreCase("profesor")) {
+                            horasString = horas.getText().toString();
                         /*TODO GUARDA HORAS*/
                         }
                     }
