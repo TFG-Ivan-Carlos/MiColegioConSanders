@@ -29,21 +29,21 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <TextView
-                android:id="@+id/text_cursos"
+                android:id="@+id/text_Opciones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/editTextCurso"
+                android:id="@+id/editTextHoras"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Curso"
                 android:inputType="textPersonName" />
 
             <Button
-                android:id="@+id/btnConsultar"
+                android:id="@+id/btnActualizar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Consultar"

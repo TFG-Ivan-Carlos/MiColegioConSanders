@@ -116,9 +116,7 @@ public class AlumnoFragment extends Fragment {
                 docData.put("Tutor", tutor.getText().toString());
                 docData.put("rol", "alumno");
                 db.collection("users").document(codigoAlumno.getText().toString()).set(docData);
-                //for (int i=0; i <20; i++ ) {
-                  //  db.collection("users").document("alumno"+i+"@gmail.com").set(note);
-                //}
+
             }
         });
 

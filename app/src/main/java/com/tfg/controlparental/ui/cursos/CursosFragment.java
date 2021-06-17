@@ -47,15 +47,15 @@ public class CursosFragment extends Fragment {
         cursosViewModel =
                 ViewModelProviders.of(this).get(CursosViewModel.class);
         vista = inflater.inflate(R.layout.fragment_cursos, container, false);
-        final TextView textView = vista.findViewById(R.id.text_cursos);
+        final TextView textView = vista.findViewById(R.id.text_Opciones);
         cursosViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
         });
-        consultar = vista.findViewById(R.id.btnConsultar);
-        codigoClase = vista.findViewById(R.id.editTextCurso);
+        consultar = vista.findViewById(R.id.btnActualizar);
+        codigoClase = vista.findViewById(R.id.editTextHoras);
 
 
         consultar.setOnClickListener(new View.OnClickListener() {
