@@ -39,6 +39,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class OpcionesFragment extends Fragment {
@@ -47,6 +48,7 @@ public class OpcionesFragment extends Fragment {
     EditText horas;
     Button actualiza;
     private String email, horasString;
+    private Map<String, Object> note;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -74,7 +76,9 @@ public class OpcionesFragment extends Fragment {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if(documentSnapshot.getData().get("rol").toString().equalsIgnoreCase("profesor")) {
                             horasString = horas.getText().toString();
+                            note = documentSnapshot.getData();
                         /*TODO GUARDA HORAS*/
+                            actualizaHoras(horasString);
                         }
                     }
                 });
@@ -87,4 +91,28 @@ public class OpcionesFragment extends Fragment {
         return root;
     }
 
+    private void actualizaHoras(String horas) {
+
+        note.put("limiteHoras", horas);
+        db.collection("users").document(email).update(note).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                showAlert("Horas de uso actualizadas");
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                showAlert("Error al actualizar horas");
+            }
+        });
+
+    }
+
+    private void showAlert(String text) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this.getContext());
+        alert.setMessage(text);
+        alert.setPositiveButton("Aceptar", null);
+        AlertDialog pop = alert.create();
+        alert.show();
+    }
 }
