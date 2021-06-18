@@ -20,7 +20,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -28,22 +30,25 @@ import com.tfg.controlparental.R;
 
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 public class CursosFragment extends Fragment {
 
     private CursosViewModel cursosViewModel;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    String codigoAlumnoString;
-    View vista;
-    Button consultar, save, delete;
-    EditText col, clase, tutor, codigoClase;
-    TextView texto;
-    private Map<String, Object> note, noteWeb;
+    private String horas;
+    private View vista;
+    private Button consultar, save, delete;
+    private EditText col, clase, tutor, codigoClase;
+    private TextView texto;
+    private Map<String, Object> note;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        String user;
+        Bundle bundle = getActivity().getIntent().getExtras();
+        String user =  bundle.getString("email");;
         cursosViewModel =
                 ViewModelProviders.of(this).get(CursosViewModel.class);
         vista = inflater.inflate(R.layout.fragment_cursos, container, false);
@@ -56,6 +61,14 @@ public class CursosFragment extends Fragment {
         });
         consultar = vista.findViewById(R.id.btnActualizar);
         codigoClase = vista.findViewById(R.id.editTextHoras);
+        DocumentReference dr = db.collection("users").document(user);
+        dr.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                note = documentSnapshot.getData();
+                horas = note.get("limiteHoras").toString();
+            }
+        });
 
 
         consultar.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +103,8 @@ public class CursosFragment extends Fragment {
                                                 array[0] = array[7];
                                                 userTextView.setBackgroundColor(Color.parseColor("#7DFF33")); //verde
                                                 for (int j = 0; j < array.length; j++) {
-                                                    if (array[j].startsWith("0") || array[j].startsWith("1") || array[j].startsWith("2") || array[j].startsWith("3") || array[j].startsWith("4")) {
+
+                                                    if(array[j].charAt(0) <= horas.charAt(0)){
 
                                                     } else {
                                                         userTextView.setBackgroundColor(Color.parseColor("#C70039")); //rojo
